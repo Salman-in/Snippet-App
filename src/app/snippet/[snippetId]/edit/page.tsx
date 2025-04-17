@@ -1,5 +1,6 @@
 import SnippetEditor from '@/components/SnippetEditor'
 import { prisma } from '@/lib/prisma';
+import { notFound } from 'next/navigation';
 import React from 'react'
 
 const EditSnippetPage = async ({ params }: { params: Promise<{snippetId: string}>}) => {
@@ -12,7 +13,7 @@ const EditSnippetPage = async ({ params }: { params: Promise<{snippetId: string}
     })
 
     if (!codeData) {
-        return <div className='flex justify-center items-center h-screen'>Snippet not found</div>
+        return notFound();
     }
   return (
     <div>

@@ -9,6 +9,8 @@ export default async function Home() {
   // await prisma.$executeRaw`UPDATE sqlite_sequence SET seq = 0 WHERE name = 'Snippet'`;
   // console.log("Resetting the database...");
 
+  // await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate a delay (To display loading state)
+  
   const allSnippets = await prisma.snippet.findMany();
   console.log(allSnippets);
 

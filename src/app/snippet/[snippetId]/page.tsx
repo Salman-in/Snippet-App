@@ -3,9 +3,12 @@ import { Button } from '@/components/ui/button';
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
 import React from 'react'
+import { notFound } from 'next/navigation';
 
 const SnippetView = async ({ params }: { params: Promise<{ snippetId: string }> }) => {
     const snippetId = (await params).snippetId;
+
+    // await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate a delay (To display loading state)
 
     const finalData = await prisma.snippet.findUnique({
         where: {
@@ -14,7 +17,7 @@ const SnippetView = async ({ params }: { params: Promise<{ snippetId: string }> 
     })
 
     if (!finalData) {
-        return <div className='flex justify-center items-center h-screen'>Snippet not found</div>
+        return notFound();
     }
 
     console.log(finalData);
