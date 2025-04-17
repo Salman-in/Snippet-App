@@ -3,8 +3,7 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 
 export default async function Home() {
-  //Resets the table ids to 0 when the db is empty
-  //Use only  when needed 
+  // Resets the table ids to 0 when the db is empty (Use only  when needed) 
   // await prisma.$executeRaw`DELETE FROM sqlite_sequence WHERE name = 'Snippet'`;
   // await prisma.$executeRaw`UPDATE sqlite_sequence SET seq = 0 WHERE name = 'Snippet'`;
   // console.log("Resetting the database...");
