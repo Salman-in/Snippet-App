@@ -2,7 +2,13 @@ import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 
+// export const dynamic = "force-dynamic"; // This will make sure that the page is always re-rendered on every request //This is Disabled caching
+// export const revalidate = 0; 
+// This will make sure that the page is always re-rendered on every request 
+// This is alse known as Time based caching or ISR (Incremental Static Regeneration)
+
 export default async function Home() {
+
   // Resets the table ids to 0 when the db is empty (Use only  when needed) 
   // await prisma.$executeRaw`DELETE FROM sqlite_sequence WHERE name = 'Snippet'`;
   // await prisma.$executeRaw`UPDATE sqlite_sequence SET seq = 0 WHERE name = 'Snippet'`;
