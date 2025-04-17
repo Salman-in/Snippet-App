@@ -13,7 +13,8 @@ export async function saveSnippets(id: number, code: string) {
             code: code
         }
     });
-
+    
+    revalidatePath(`/snippet/${id}`); //On demand revalidating the cache on the click of Save button
     redirect(`/snippet/${id}`);
 }
 

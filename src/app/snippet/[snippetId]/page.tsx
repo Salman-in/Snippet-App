@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 const SnippetView = async ({ params }: { params: Promise<{ snippetId: string }> }) => {
     const snippetId = (await params).snippetId;
 
-    await new Promise((resolve) => setTimeout(resolve, 700)); // Simulate a delay (To display loading state)
+    // await new Promise((resolve) => setTimeout(resolve, 700)); // Simulate a delay (To display loading state)
 
     const finalData = await prisma.snippet.findUnique({
         where: {
@@ -48,5 +48,12 @@ const SnippetView = async ({ params }: { params: Promise<{ snippetId: string }> 
         </div>
     )
 }
-
 export default SnippetView
+
+export const generateStaticParams = async () => {
+    const snippets = await prisma.snippet.findMany()
+
+    return snippets.map((snippet) => {
+        return {id: snippet.id.toString()}
+    })
+} 

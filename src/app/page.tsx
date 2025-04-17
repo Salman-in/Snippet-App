@@ -32,7 +32,7 @@ export default async function Home() {
             <div key={snippet.id} className=" flex justify-between border p-4 my-4 rounded-lg bg-gray-200">
               <h1 className="font-bold text-xl">{snippet.title}</h1>
               <Link href={`/snippet/${snippet.id}`}>
-                <Button variant={'link'} className="cursor-pointer">View</Button>
+                <Button variant={'default'} className="cursor-pointer">View</Button>
               </Link>
             </div>
           ))
