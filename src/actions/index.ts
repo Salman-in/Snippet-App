@@ -14,7 +14,7 @@ export async function saveSnippets(id: number, code: string) {
         }
     });
     
-    revalidatePath(`/snippet/${id}`); //On demand revalidating the cache on the click of Save button
+    // revalidatePath(`/snippet/${id}`); //On demand revalidating the cache on the click of Save button //No need of SSG
     redirect(`/snippet/${id}`);
 }
 

@@ -50,10 +50,10 @@ const SnippetView = async ({ params }: { params: Promise<{ snippetId: string }> 
 }
 export default SnippetView
 
-export const generateStaticParams = async () => {
-    const snippets = await prisma.snippet.findMany()
+// export const generateStaticParams = async () => {
+//     const snippets = await prisma.snippet.findMany()
 
-    return snippets.map((snippet) => {
-        return {id: snippet.id.toString()}
-    })
-} 
+//     return snippets.map((snippet) => {
+//         return {id: snippet.id.toString()}
+//     })
+// } 
